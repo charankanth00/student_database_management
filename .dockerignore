@@ -1,0 +1,22 @@
+# Maven build files
+target/
+*.class
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Git files
+.git/
+.gitignore
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store

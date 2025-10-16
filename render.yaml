@@ -1,0 +1,33 @@
+services:
+  # Web service
+  - type: web
+    name: student-management-system
+    env: docker
+    region: singapore  # Choose the region closest to your users
+    plan: free  # Using free tier
+    healthCheckPath: /  # Health check endpoint
+    envVars:
+      - key: PORT
+        value: 8081
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      # Secrets - these will be set in Render dashboard
+      - key: MONGODB_URI
+        sync: false  # This means it's a secret, set manually in dashboard
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+    autoDeploy: true  # Enable automatic deployments
+    disk:
+      name: tmp
+      mountPath: /tmp
+      sizeGB: 1  # Free tier limitation
+    scaling:
+      minInstances: 1  # Free tier allows only 1
+      maxInstances: 1
+    buildFilter:
+      paths:
+        - src/**  # Trigger rebuilds on source changes
+        - pom.xml
+        - Dockerfile
