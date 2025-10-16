@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Environment Files ###
+.env
+*.env
+.env.*
+.env.backup
+!.env.example
+
+### IDE Metadata ###
+.metadata/
+.metadata
+*.metadata
