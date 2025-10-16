@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "index"; // This will return index.html (from templates)
+        return "redirect:/students"; // Redirect to students page
     }
 }
